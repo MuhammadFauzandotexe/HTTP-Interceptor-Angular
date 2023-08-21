@@ -63,7 +63,8 @@
               "browserTarget": "tokomandiri-frontend:build:production"
             },
             "development": {
-              "browserTarget": "tokomandiri-frontend:build:development"
+              "browserTarget": "tokomandiri-frontend:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
@@ -94,5 +95,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "a3b91d09-bd27-428b-aab4-00d5360948bb"
   }
 }

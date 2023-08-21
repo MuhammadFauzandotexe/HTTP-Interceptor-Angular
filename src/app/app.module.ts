@@ -3,16 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
+import {AuthInterceptor} from "./auth/interceptor/auth.interceptor";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        HttpClientModule
+    ],
+  providers: [
+      {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
