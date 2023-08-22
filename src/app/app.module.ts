@@ -6,10 +6,13 @@ import { AppComponent } from './app.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./auth/interceptor/auth.interceptor";
+import { NotFoundComponent } from './not-found/not-found.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    NotFoundComponent,
   ],
     imports: [
         BrowserModule,
@@ -18,7 +21,7 @@ import {AuthInterceptor} from "./auth/interceptor/auth.interceptor";
         HttpClientModule
     ],
   providers: [
-      {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
+      {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true},
   ],
   bootstrap: [AppComponent]
 })
